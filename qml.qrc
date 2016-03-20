@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+	<file>widget/Serial_info_delegate.qml</file>
+	<file>widget/ELabel.qml</file>
+    </qresource>
+</RCC>
