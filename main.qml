@@ -3,6 +3,7 @@ import "widget"
 import QtQuick 2.3
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 Window {
     id      : root
@@ -70,6 +71,18 @@ Window {
             }
         }
 
+    }
+
+    Button {
+        id: button1
+        x: 187
+        y: 556
+        width: 121
+        height: 39
+        text: qsTr("Button")
+        style:  BtStyle2{
+
+        }
     }
 }
 

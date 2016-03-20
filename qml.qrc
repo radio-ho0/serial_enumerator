@@ -1,7 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-	<file>widget/Serial_info_delegate.qml</file>
-	<file>widget/ELabel.qml</file>
+        <file>widget/Serial_info_delegate.qml</file>
+        <file>widget/ELabel.qml</file>
+        <file>widget/BtStyle2.qml</file>
     </qresource>
 </RCC>
