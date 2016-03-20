@@ -54,7 +54,7 @@ void MyModel::refreshModel()
 {
 //    addSerialInfo(SerialInfo("USB1", "desc1"));
 //    addSerialInfo(SerialInfo("USB2", "desc2"));
-
+    m_serials.clear();
     foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts()) {
 
         QString name              = info.portName();
