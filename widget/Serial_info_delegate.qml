@@ -2,8 +2,8 @@ import QtQuick 2.0
 
 Rectangle {
     id     : root
-    width  : 550
-    height : 390
+    width  : 631
+    height : 230
     color  : "#262626"
 
     property var   isBusy       : "No"
@@ -17,23 +17,30 @@ Rectangle {
 
     Component.onCompleted:  {
         if(  isBusy == "No"){
-            _busy_indentifier.color = "olive";
+            _busy_indentifier.color = "#647687";
         }else{
-            _busy_indentifier.color = "tomato";
+            _busy_indentifier.color = "#e51400";
         }
     }
 
     Row {
         id : _info
+        anchors.fill:  parent
         Rectangle {
             id     : _busy_indentifier
+            color  : "#647687"
             width  : 25
-            height : root.height - 50
+            height : root.height - 80
             y      : 20
+            Behavior on color {
+                 ColorAnimation {
+                     duration: 800
+                 }
+            }
         }
         Grid {
             columns: 2
-            spacing: 5
+            spacing: 1
 
             ELabel {
                 id    : _tip_name

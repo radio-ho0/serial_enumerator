@@ -3,7 +3,7 @@ import QtQuick 2.0
 Text {
     id                  : root
     width               : 300
-    height              : 50
+    height              : 30
     text                : "aHa!"
     verticalAlignment   : Text.AlignVCenter
     horizontalAlignment : Text.AlignHCenter

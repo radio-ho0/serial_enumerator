@@ -10,7 +10,7 @@ Window {
     visible : true
     color   : "beige"
     width   : 800
-    height  : 600
+    height  : 620
 
     ListView {
         id     : _viewer
@@ -37,52 +37,64 @@ Window {
             _model.refreshModel();
         }
 
-
+        anchors {
+            top : _controls_row.bottom
+            topMargin : 5
+            left : parent.left
+            leftMargin : 5
+        }
 
     }
 
-    SpinBox {
-        id     : _spin
-        width  : 170
-        height : 30
-        value  : 5
+    Row {
+        id : _controls_row
         anchors {
-            top        : _viewer.bottom
+            top        : parent.top
             topMargin  : 15
             left       : parent.left
             leftMargin : 5
         }
 
-        onValueChanged:  {
-            _timer.stop();
-            _timer.interval = _spin.value * 1000;
-            _timer.start();
+        SpinBox {
+            id     : _spin
+            width  : 170
+            height : 30
+            anchors.verticalCenter: parent.verticalCenter
+            value  : 10
+
+            onValueChanged:  {
+                _timer.stop();
+                _timer.interval = _spin.value * 1000;
+                _timer.start();
+            }
+
+            Timer {
+                id       : _timer
+                interval : _spin.value * 1000
+                repeat   : true
+                running  : true
+                onTriggered: {
+                    _viewer.model = null;
+                    _model.refreshModel();
+                    _viewer.model = _model;
+                }
+            }
+
         }
 
-        Timer {
-            id       : _timer
-            interval : _spin.value * 1000
-            repeat   : true
-            running  : true
-            onTriggered: {
-                _viewer.model = null;
-                _model.refreshModel();
-                _viewer.model = _model;
+        Button {
+            id: button1
+
+            width: 121
+            height: 39
+            text: qsTr("Button")
+            anchors.verticalCenter: parent.verticalCenter
+            style:  BtStyle2{
+
             }
         }
-
     }
 
-    Button {
-        id: button1
-        x: 187
-        y: 556
-        width: 121
-        height: 39
-        text: qsTr("Button")
-        style:  BtStyle2{
 
-        }
-    }
 }
 
